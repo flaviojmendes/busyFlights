@@ -1,5 +1,6 @@
 package es.flaviojmend.travix.controller;
 
+import es.flaviojmend.travix.command.CrazyAirFilterCommand;
 import es.flaviojmend.travix.persistence.entity.CrazyAirFlight;
 import es.flaviojmend.travix.service.CrazyAirService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class CrazyAirController {
     CrazyAirService crazyAirService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public Iterable<CrazyAirFlight> search(@RequestBody CrazyAirFlight crazyAirFlight) {
-        return crazyAirService.listFlights(crazyAirFlight);
+    public Iterable<CrazyAirFlight> search(@RequestBody CrazyAirFilterCommand crazyAirFilterCommand) {
+        return crazyAirService.listFlights(crazyAirFilterCommand);
     }
 
 

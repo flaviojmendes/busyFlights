@@ -21,16 +21,16 @@ public class CrazyAirMockRepository {
             flights.add(new CrazyAirFlight().setAirline("LATAM")
                     .setArrivalDate(retrieveRandomDate())
                     .setDepartureDate(retrieveRandomDate())
-                    .setCabinclass(current().nextInt(0, 1) == 0 ? "E" : "B")
-                    .setDepartureAirportCode(current().nextInt(0, 1) == 0 ? "BSB" : "RIO")
-                    .setDestinationAirportCode(current().nextInt(0, 1) == 0 ? "GRU" : "CGH")
+                    .setCabinclass(current().nextInt(0, 2) == 0 ? "E" : "B")
+                    .setDepartureAirportCode(current().nextInt(0, 2) == 0 ? "BSB" : "RIO")
+                    .setDestinationAirportCode(current().nextInt(0, 2) == 0 ? "GRU" : "CGH")
                     .setPrice(current().nextDouble(99.0, 600.0))
             );
         }
 
     }
 
-    public Iterable<CrazyAirFlight> listAll() {
+    public List<CrazyAirFlight> listAll() {
         return flights;
     }
 
