@@ -16,8 +16,8 @@ public class CrazyAirController {
     @Autowired
     CrazyAirService crazyAirService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public Iterable<CrazyAirFlight> get(@RequestBody CrazyAirFlight crazyAirFlight) {
+    @RequestMapping(method = RequestMethod.POST)
+    public Iterable<CrazyAirFlight> search(@RequestBody CrazyAirFlight crazyAirFlight) {
         return crazyAirService.listFlights(crazyAirFlight);
     }
 

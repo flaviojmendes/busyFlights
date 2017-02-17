@@ -37,12 +37,12 @@ public class CrazyAirMockRepository {
     private Date retrieveRandomDate() {
         Calendar date = new GregorianCalendar();
 
-        date.set(Calendar.HOUR_OF_DAY, current().nextInt(0, 23));
-        date.set(Calendar.MINUTE, current().nextInt(0, 59));
+        date.set(Calendar.HOUR_OF_DAY, current().nextInt(23));
+        date.set(Calendar.MINUTE, current().nextInt(59));
         date.set(Calendar.SECOND, 0);
         date.set(Calendar.MILLISECOND, 0);
-        date.set(Calendar.DAY_OF_MONTH, current().nextInt(0, 30));
-        date.set(Calendar.MONTH, current().nextInt(3, 11));
+        date.set(Calendar.DAY_OF_MONTH, current().nextInt(29));
+        date.set(Calendar.MONTH, current().nextInt(11));
 
         return date.getTime();
 

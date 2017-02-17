@@ -1,6 +1,11 @@
 package es.flaviojmend.travix.persistence.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import es.flaviojmend.travix.serializer.PriceSerializer;
+
+
 import java.util.Date;
 
 public class CrazyAirFlight {
@@ -10,7 +15,11 @@ public class CrazyAirFlight {
     private String cabinclass;
     private String departureAirportCode;
     private String destinationAirportCode;
+
+    @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
     private Date departureDate;
+
+    @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
     private Date arrivalDate;
 
 
@@ -23,6 +32,7 @@ public class CrazyAirFlight {
         return this;
     }
 
+    @JsonSerialize(using = PriceSerializer.class)
     public Double getPrice() {
         return price;
     }
