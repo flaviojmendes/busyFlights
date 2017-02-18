@@ -8,6 +8,7 @@ import es.flaviojmend.busyFlights.exception.InvalidQuantityException;
 import es.flaviojmend.busyFlights.persistence.entity.CrazyAirFlight;
 import es.flaviojmend.busyFlights.persistence.entity.Flight;
 import es.flaviojmend.busyFlights.persistence.entity.ToughJetFlight;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.*;
 @Service
 public class SearchFlightsService {
 
+    Logger logger = Logger.getLogger(SearchFlightsService.class);
 
     @Autowired
     private Values values;
@@ -90,6 +92,8 @@ public class SearchFlightsService {
 
     private CrazyAirFlight[] listCrazyAirFlights(FlightsFilterCommand flightsFilterCommand) {
 
+        logger.info("Searching for CrazyAir flights..");
+
         CrazyAirFilterCommand crazyAirFilterCommand = new CrazyAirFilterCommand();
         crazyAirFilterCommand.setDepartureDate(flightsFilterCommand.getDepartureDate())
                 .setReturnDate(flightsFilterCommand.getReturnDate())
@@ -100,12 +104,17 @@ public class SearchFlightsService {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
 
-        return restTemplate.postForObject("http://localhost:"+ values.getServerPort() +"/crazyAir",
+        CrazyAirFlight[] flights = restTemplate.postForObject("http://localhost:"+ values.getServerPort() +"/crazyAir",
                 crazyAirFilterCommand,
                 CrazyAirFlight[].class);
+
+        logger.info(flights.length + " flights found.");
+        return flights;
     }
 
     private ToughJetFlight[] listToughJetFlights(FlightsFilterCommand flightsFilterCommand) {
+
+        logger.info("Searching for ToughJetFlights..");
 
         Calendar departureCalendar = null;
         if(flightsFilterCommand.getDepartureDate() != null) {
@@ -133,9 +142,14 @@ public class SearchFlightsService {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
 
-        return restTemplate.postForObject("http://localhost:" + values.getServerPort() + "/toughJet",
+
+        ToughJetFlight[] flights = restTemplate.postForObject("http://localhost:" + values.getServerPort() + "/toughJet",
                 toughJetFilterCommand,
                 ToughJetFlight[].class);
+
+        logger.info(flights.length + " flights found.");
+
+        return flights;
 
     }
 }

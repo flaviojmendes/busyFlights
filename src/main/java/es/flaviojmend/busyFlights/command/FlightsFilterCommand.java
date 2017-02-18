@@ -1,12 +1,18 @@
 package es.flaviojmend.busyFlights.command;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class FlightsFilterCommand {
 
     private String origin;
     private String destination;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
     private Date departureDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
     private Date returnDate;
     private Integer numberOfPassengers;
 

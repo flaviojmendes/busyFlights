@@ -17,10 +17,10 @@ public class Flight {
     private String departureAirportCode;
     private String destinationAirportCode;
 
-    @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
     private Date departureDate;
 
-    @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
     private Date arrivalDate;
 
 

@@ -19,6 +19,7 @@ public class CrazyAirController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Iterable<CrazyAirFlight> search(@RequestBody CrazyAirFilterCommand crazyAirFilterCommand) {
+
         return crazyAirService.listFlights(crazyAirFilterCommand);
     }
 

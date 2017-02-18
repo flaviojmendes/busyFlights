@@ -54,7 +54,7 @@ public class CrazyAirFilterCommand {
         return this;
     }
 
-    public Integer getNumberOfPassengers() {
+    public Integer   getNumberOfPassengers() {
         return numberOfPassengers;
     }
 

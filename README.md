@@ -4,6 +4,21 @@ This application was developed as part of a test.
 
 All the data was _mocked_ to not overcomplicate.
 
+__Test Coverage__: 91%
+
+## How to Build?
+
+ - Navigate do the root folder of the project.
+ - Execute:
+
+
+    mvn package
+- Navigate to __target/__
+- Execute:
+
+
+    java -jar busyFlights-01.00.00.jar
+
 ### CrazyAir
 
 URI:
