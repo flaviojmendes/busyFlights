@@ -1,7 +1,5 @@
 package es.flaviojmend.busyFlights;
 
-import org.springframework.beans.factory.annotation.Value;
-
 public class Constants {
 
     /**

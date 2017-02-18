@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import es.flaviojmend.busyFlights.serializer.PriceSerializer;
 
-
 import java.util.Date;
 
 public class Flight {
